@@ -66,7 +66,7 @@ public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
 
     @Override
     public void moveFromTo(int to) {
-        for (int i = 0; i < pointer; i++) {
+        for (int i = to; i < pointer; i++) {
             list[i] = list[i+1];
         }
     }

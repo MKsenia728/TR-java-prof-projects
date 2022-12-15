@@ -14,7 +14,6 @@ public class DequePlus<T> extends CollectionPlus<T> implements OwnDeque<T> {
     public DequePlus(int size, int growthRate) {
         super(size, growthRate);
     }
-//    List<T> list = new ArrayList<>();
 
     @Override
     public void add(T el) {

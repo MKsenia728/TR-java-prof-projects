@@ -5,54 +5,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PriorityQueuePlus<T> extends CollectionPlus<T> implements OwnPriorityQueue<T> {
-    List<T> list = new ArrayList<>();
 
-    @Override
-    public int size() {
-        return list.size();
+    public PriorityQueuePlus() {
     }
 
-    @Override
-    public String toString() {
-        return list.toString();
+    public PriorityQueuePlus(int size) {
+        super(size);
+    }
+
+    public PriorityQueuePlus(int size, int growthRate) {
+        super(size, growthRate);
     }
 
     @Override
     public void add(T el) {
-        list.add(el);
+        if (needIncrease()) increase();
+        list[++pointer] = el;
     }
 
     @Override
     public boolean isEmpty() {
-        return list.size() == 0;
+        return pointer < 0;
     }
 
     @Override
-    public T remove() {
-        return null;
-    }
-
-    @Override
-    public T peek() {
-        return (isEmpty()) ? null : list.get(0);
-    }
-
-//    private int minEl() {
-//        int indexMinEl = 0;
-//        Method m = isMethod(T el);
-//        for (int i = 1; i < list.size(); i++) {
-//            if (list.get(indexMinEl).(list.get(i)) > 0) indexMinEl = i;
-//        }
-//        T minEl = list.get(0);
-//        return indexMinEl;
-//    }
-
-    private Method isMethod(T el) throws NoSuchMethodException {
-        Method m = null;
-        try {
-            m = el.getClass().getSimpleName().getClass().getMethod("compareTo");
-        } catch (Exception e) {
+    public T remove() throws Exception {
+        T el = peek();
+        if (el != null){
+            int i = 0;
+            while (!el.equals(list[i])) i++;
+            moveFromTo(i);
+            pointer--;
         }
-        return m;
+        if (needDecrease()) decrease();
+        return el;
+    }
+
+    @Override
+    public T peek() throws Exception {
+        if (!(list[pointer] instanceof Comparable)) throw new Exception("My exception - There is not comparable");
+        return (isEmpty()) ? null : (T) list[findMin()];
+    }
+    public void moveFromTo(int to) {
+        for (int i = to; i < pointer; i++) {
+            list[i] = list[i+1];
+        }
+    }
+
+    @Override
+    public int findMin() {
+        int indexMin = 0;
+        for (int i = 1; i < pointer; i++) {
+            if ((((Comparable) list[indexMin]).compareTo((Comparable) list[i])) > 0) indexMin = i;
+        }
+        return indexMin;
     }
 }

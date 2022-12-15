@@ -3,7 +3,6 @@ package MyCollections;
 import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,6 +15,7 @@ public class TestCollections {
         StackPlus<Person> stackList = new StackPlus<>();
         QueuePlus<Person> queueList = new QueuePlus<>();
         DequePlus<Person> dequeList = new DequePlus<>();
+        PriorityQueuePlus<Person> priorityQueueList = new PriorityQueuePlus<>();
 
 
         for (int i = 0; i < 15; i++) {
@@ -29,6 +29,7 @@ public class TestCollections {
             stackList.push(p);
             queueList.add(p);
             dequeList.addLast(p);
+            priorityQueueList.add(p);
         }
 
 
@@ -74,5 +75,19 @@ public class TestCollections {
 //        }
 //        System.out.println(dequeList);
         System.out.println(dequeList.list.length);
+
+        System.out.println("===============Test PRIORITY QUEUE===========================");
+        System.out.println(priorityQueueList);
+        System.out.println("Priority peek  " + priorityQueueList.peek());
+        System.out.println("=====remove element====");
+        System.out.println("PriorityQueue " + priorityQueueList.remove());
+        System.out.println(priorityQueueList);
+
+        int size3 = dequeList.size() + 1;
+        for (int i = 0; i < size3-3; i++) {
+            System.out.println("PrimaryQueue remove " + priorityQueueList.remove());
+        }
+        System.out.println(priorityQueueList);
+        System.out.println(priorityQueueList.list.length);
     }
 }
