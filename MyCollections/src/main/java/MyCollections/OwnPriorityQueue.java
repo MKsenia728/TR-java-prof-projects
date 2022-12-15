@@ -7,5 +7,4 @@ public interface OwnPriorityQueue<T> {
     T peek() throws Exception;
     void moveFromTo(int to);
     int findMin();
-
 }

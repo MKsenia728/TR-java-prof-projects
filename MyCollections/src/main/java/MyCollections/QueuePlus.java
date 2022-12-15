@@ -1,9 +1,5 @@
 package MyCollections;
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
     public QueuePlus() {
     }
@@ -15,8 +11,6 @@ public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
     public QueuePlus(int size, int growthRate) {
         super(size, growthRate);
     }
-//    List<T> list = new ArrayList<>();
-
 
     @Override
     public void add(T el) {
@@ -32,7 +26,7 @@ public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
     @Override
     public T remove() throws Exception {
         T el = element();
-        if (el != null){
+        if (el != null) {
             list[0] = null;
             moveFromTo(0);
             pointer--;
@@ -44,7 +38,7 @@ public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
     @Override
     public T poll() {
         T el = peek();
-        if (el != null){
+        if (el != null) {
             list[0] = null;
             moveFromTo(0);
             pointer--;
@@ -67,9 +61,7 @@ public class QueuePlus<T> extends CollectionPlus<T> implements OwnQueue<T> {
     @Override
     public void moveFromTo(int to) {
         for (int i = to; i < pointer; i++) {
-            list[i] = list[i+1];
+            list[i] = list[i + 1];
         }
     }
-
-
 }

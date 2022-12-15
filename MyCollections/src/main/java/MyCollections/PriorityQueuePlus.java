@@ -1,9 +1,5 @@
 package MyCollections;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-
 public class PriorityQueuePlus<T> extends CollectionPlus<T> implements OwnPriorityQueue<T> {
 
     public PriorityQueuePlus() {
@@ -31,7 +27,7 @@ public class PriorityQueuePlus<T> extends CollectionPlus<T> implements OwnPriori
     @Override
     public T remove() throws Exception {
         T el = peek();
-        if (el != null){
+        if (el != null) {
             int i = 0;
             while (!el.equals(list[i])) i++;
             moveFromTo(i);
@@ -46,9 +42,10 @@ public class PriorityQueuePlus<T> extends CollectionPlus<T> implements OwnPriori
         if (!(list[pointer] instanceof Comparable)) throw new Exception("My exception - There is not comparable");
         return (isEmpty()) ? null : (T) list[findMin()];
     }
+
     public void moveFromTo(int to) {
         for (int i = to; i < pointer; i++) {
-            list[i] = list[i+1];
+            list[i] = list[i + 1];
         }
     }
 

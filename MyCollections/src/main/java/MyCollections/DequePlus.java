@@ -1,8 +1,5 @@
 package MyCollections;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class DequePlus<T> extends CollectionPlus<T> implements OwnDeque<T> {
     public DequePlus() {
     }
