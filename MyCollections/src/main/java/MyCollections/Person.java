@@ -13,7 +13,7 @@ public class Person implements Comparable<Person> {
 
     @Override
     public String toString() {
-        return String.format("Name: %-15s age: %-4s \n", name, age);
+        return String.format("\nName: %-15s age: %-4s", name, age);
     }
 
     @Override

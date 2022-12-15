@@ -17,4 +17,5 @@ public interface OwnDeque<T>{
     T element() throws Exception;
     T elementFirst() throws Exception;
     T elementLast() throws Exception;
+    void moveFromTo(int to);
 }

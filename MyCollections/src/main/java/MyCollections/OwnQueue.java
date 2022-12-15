@@ -7,4 +7,6 @@ public interface OwnQueue<T> {
     T poll();
     T peek();
     T element() throws Exception;
+
+    void moveFromTo(int to);
 }
